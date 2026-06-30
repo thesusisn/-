@@ -308,3 +308,120 @@ textarea {
   padding: 0.6rem 0;
   border-bottom: 1px solid var(--border);
 }
+
+/* Game */
+.game-page {
+  height: calc(100vh - 65px);
+}
+
+.game-canvas-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #9fd1f0;
+  cursor: crosshair;
+}
+
+.game-canvas-wrap canvas {
+  display: block;
+  outline: none;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  text-align: center;
+  z-index: 5;
+}
+
+.game-overlay h1 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.game-controls {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+  color: #d8d8de;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.game-crosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.game-crosshair::before,
+.game-crosshair::after {
+  content: "";
+  position: absolute;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.8);
+}
+
+.game-crosshair::before {
+  left: 8px;
+  top: 0;
+  width: 2px;
+  height: 18px;
+}
+
+.game-crosshair::after {
+  top: 8px;
+  left: 0;
+  width: 18px;
+  height: 2px;
+}
+
+.game-hotbar {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 4;
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.hotbar-slot {
+  width: 48px;
+  height: 48px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hotbar-slot.selected {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px rgba(229, 9, 20, 0.4);
+}
+
+.hotbar-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 2px;
+  display: block;
+}

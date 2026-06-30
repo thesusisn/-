@@ -18,6 +18,7 @@ export default function Navbar() {
         </Link>
         <Link to="/">Browse</Link>
         <Link to="/live">Live</Link>
+        <Link to="/game">Game</Link>
         {user && <Link to="/upload">Upload</Link>}
       </div>
       <div className="navbar-right">

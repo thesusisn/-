@@ -9,6 +9,7 @@ import Upload from "./pages/Upload";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Game from "./pages/Game";
 
 function ProtectedRoute({ children }) {
   const { user, loading } = useAuth();
@@ -24,6 +25,7 @@ function AppRoutes() {
       <Route path="/live" element={<Live />} />
       <Route path="/live/:username" element={<LiveWatch />} />
       <Route path="/watch/:id" element={<Watch />} />
+      <Route path="/game" element={<Game />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route
