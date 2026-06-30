@@ -1,0 +1,39 @@
+services:
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    environment:
+      SECRET_KEY: ${SECRET_KEY}
+      RTMP_WEBHOOK_SECRET: ${RTMP_WEBHOOK_SECRET}
+    volumes:
+      - backend_data:/app/data
+    expose:
+      - "8000"
+
+  rtmp-server:
+    build: ./rtmp-server
+    restart: unless-stopped
+    environment:
+      BACKEND_URL: http://backend:8000
+      RTMP_WEBHOOK_SECRET: ${RTMP_WEBHOOK_SECRET}
+      HLS_DIR: /data/storage/hls
+    volumes:
+      - backend_data:/data
+    ports:
+      - "1935:1935"
+    depends_on:
+      - backend
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_RTMP_URL: ${PUBLIC_RTMP_URL}
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  backend_data:

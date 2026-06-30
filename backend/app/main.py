@@ -1,3 +1,5 @@
+import os
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -10,9 +12,12 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="StreamFlix API")
 
+_default_origins = "http://localhost:5173,http://127.0.0.1:5173"
+allow_origins = os.environ.get("CORS_ORIGINS", _default_origins).split(",")
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=allow_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
