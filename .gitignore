@@ -1,0 +1,26 @@
+# Python
+backend/venv/
+__pycache__/
+*.pyc
+
+# SQLite database
+backend/streamflix.db
+
+# Uploaded/generated media (videos, thumbnails, HLS segments)
+backend/storage/
+
+# Node
+node_modules/
+dist/
+dist-ssr/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor / OS
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.local
