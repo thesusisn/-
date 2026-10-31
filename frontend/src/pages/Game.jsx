@@ -637,7 +637,7 @@ export default function Game() {
       <div className="game-canvas-wrap" ref={mountRef}>
         {!locked && (
           <div className="game-overlay">
-            <h1>Voxel Craft</h1>
+            <h1>Minecraft</h1>
             <p>Click to play</p>
             <ul className="game-controls">
               <li><strong>WASD</strong> move &nbsp; <strong>Shift</strong> sprint &nbsp; <strong>Space</strong> jump</li>
